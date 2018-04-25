@@ -21,8 +21,16 @@
 // $pesticide-debug-depth - {boolean} adds shadows to all elements.
 // @source - http://pesticide.io/
 
+/// @group Configuration
 $pesticide-debug-outline: false;
+/// @group Configuration
 $pesticide-debug-depth: false;
+
+
+// Please uncomment and add more if you want custom bootstrap
+// @import "node_modules/bootstrap/scss/bootstrap";
+
+
 
 // ==========================================================================
 // $Libs
@@ -83,3 +91,4 @@ $pesticide-debug-depth: false;
 // $Shame
 // ==========================================================================
 @import 'shame';
+

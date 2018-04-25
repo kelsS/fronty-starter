@@ -23,7 +23,14 @@ var gulp        = require('gulp'),
     sassdoc     = require('sassdoc'),
     // Temporary solution until gulp 4
     // https://github.com/gulpjs/gulp/issues/355
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    strip = require('gulp-strip-comments')
+    ;
+
+var settings = {
+  minHtml: false,
+  removeHtmlComment: true,
+};
 
 var bases = {
     app:  'src/',
@@ -139,11 +146,15 @@ gulp.task('deploy', function() {
 
 gulp.task('js-app', function() {
   gulp.src(bases.app + 'js/*.js')
-    .pipe(uglify())
-    .pipe(size({ gzip: true, showFiles: true }))
+    
+    // .pipe(size({ gzip: true, showFiles: true }))
     .pipe(concat('app.js'))
     .pipe(gulp.dest(bases.dist + 'js'))
-    .pipe(reload({stream:true}));
+    .pipe(reload({stream:true}))
+    .pipe(uglify())
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(bases.dist + 'js'));
 });
 
 gulp.task('js-libs', function() {
@@ -186,20 +197,30 @@ gulp.task('sass-lint', function() {
 });
 
 gulp.task('minify-html', function() {
-  gulp.src(bases.app + './*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(bases.dist))
-    .pipe(reload({stream:true}));
+  if(settings.minHtml) {
+    gulp.src(bases.app + './*.html')
+      .pipe(strip())
+      .pipe(htmlmin({collapseWhitespace: true}))
+      .pipe(gulp.dest(bases.dist))
+      .pipe(reload({stream:true}));
+  } else {
+    gulp.src(bases.app + './*.html')
+      .pipe(strip())
+      .pipe(gulp.dest(bases.dist))
+      .pipe(reload({stream:true}));
+  }
 });
 
 gulp.task('watch', function() {
+  gulp.watch(bases.app + 'js/libs/*.js', ['js-libs']);
+  gulp.watch(bases.app + 'js/*.js', ['js-app']);
   gulp.watch(bases.app + 'scss/**/*.scss', ['styles']);
   gulp.watch(bases.app + './*.html', ['minify-html']);
   gulp.watch(bases.app + 'img/*', ['imagemin']);
 });
 
 gulp.task('imagemin', function() {
-  return gulp.src(bases.app + 'img/*')
+  return gulp.src(bases.app + 'img/**/*')
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
@@ -230,7 +251,7 @@ gulp.task('sassdoc', function () {
 // ------------
 
 gulp.task('default', function(done) {
-  runSequence('clean:dist', 'browser-sync', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'themes', 'copy', 'watch', done);
+  runSequence('clean:dist', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
 });
 
 gulp.task('build', function(done) {

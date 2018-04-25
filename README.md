@@ -6,10 +6,37 @@
 - Change Jquery from googleapis to CDNJS
 - Don't support old browser (You can use index-old.html if want.)
 - remove doc url comment in html file. Moved to README file.
+- Added bootstrap, jshint.
+- Added bootstrap 4 [pricing template](https://getbootstrap.com/docs/4.0/examples/pricing/).
+- Disbled minify html as default. You can setting in gulpfile
+- Added function to generate minify file for js-app
+- Watching support js files now.
+- Fixed bug `Don't run success for first time.`
 
 # Reference Documents/Links
-- [DNS prefetching] (http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
+- [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
+- [Assets prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching)
+- [Page prefetching](http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching)
+- SCSS Structure use [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/)
+- Write Document for SCSS using [SASSDOC](http://sassdoc.com/)
 
+
+## Some Tips
+
+### How to debug css
+- in scss/styles.scss file
+- change `$pesticide-debug-outline` and `$pesticide-debug-depth` to `true`
+
+### How to start for beginner
+- Install gulp: `npm install gulp -g`
+- git clone git@github.com:tidusvn05/sassy-starter.git
+- cd sassy-starter
+- run `yarn` or `npm install`
+- run `gulp` or `yarn dev`
+
+### For production
+- Let use `min` files.
+- 
 
 # Sassy Starter [![Stories in Ready](https://badge.waffle.io/minamarkham/sassy-starter.png?label=ready&title=Ready)](https://waffle.io/minamarkham/sassy-starter)
 
@@ -132,14 +159,13 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 │   ├── crossdomain.xml
 │   ├── humans.txt
 │   ├── icons
-│   │   ├── apple-touch-icon-114x114-precomposed.png
-│   │   ├── apple-touch-icon-57x57-precomposed.png
-│   │   ├── apple-touch-icon-72x72-precomposed.png
-│   │   ├── apple-touch-icon-precomposed.png
 │   │   ├── apple-touch-icon.png
 │   │   ├── favicon.ico
 │   │   └── favicon.png
 │   ├── img
+│   │   ├── 7.jpg
+│   │   └── home
+│   │       └── 7.jpg
 │   ├── index.html
 │   ├── js
 │   ├── robots.txt
