@@ -28,8 +28,8 @@ var gulp        = require('gulp'),
     ;
 
 var settings = {
-  minHtml: true,
-  removeHtmlComment: true,
+  minHtml: false,
+  removeHtmlComment: false,
 };
 
 var bases = {
