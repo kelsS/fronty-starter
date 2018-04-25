@@ -28,7 +28,7 @@ var gulp        = require('gulp'),
     ;
 
 var settings = {
-  minHtml: false,
+  minHtml: true,
   removeHtmlComment: true,
 };
 
@@ -197,18 +197,16 @@ gulp.task('sass-lint', function() {
 });
 
 gulp.task('minify-html', function() {
-  if(settings.minHtml) {
-    gulp.src(bases.app + './*.html')
-      .pipe(strip())
-      .pipe(htmlmin({collapseWhitespace: true}))
-      .pipe(gulp.dest(bases.dist))
-      .pipe(reload({stream:true}));
-  } else {
-    gulp.src(bases.app + './*.html')
-      .pipe(strip())
-      .pipe(gulp.dest(bases.dist))
-      .pipe(reload({stream:true}));
+  var pipelin = gulp.src(bases.app + './*.html');
+  if(settings.removeHtmlComment) {
+    pipelin.pipe(strip());
   }
+  if(settings.minHtml) {
+    pipelin.pipe(htmlmin({collapseWhitespace: true}))
+  }
+
+  pipelin.pipe(gulp.dest(bases.dist))
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('watch', function() {
