@@ -1,9 +1,9 @@
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/uses-css.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
 # Change by Tidusvn05
-- Update package.json to lastest (2018-04-24)
-- Change Jquery from googleapis to CDNJS
-- Don't support old browser (You can use index-old.html if want.)
+- Updated package.json to lastest (2018-04-24)
+- Moved CDN provider from googleapis to CDNJS
+- Don't support old browser (You can use index-support-ie.html if want.)
 - remove doc url comment in html file. Moved to README file.
 - Added bootstrap, jshint.
 - Added bootstrap 4 [pricing template](https://getbootstrap.com/docs/4.0/examples/pricing/).
