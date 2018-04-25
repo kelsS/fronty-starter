@@ -11,6 +11,8 @@
 - Added function to generate minify file for js-app
 - Watching support js files now.
 - Fixed bug `Don't run success for first time.`
+- Added icon pack fontawesome 5.0.10 free version.
+- Added icon pack materialdesignicons 2.3.54 free version.
 
 # Reference Documents/Links
 - [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
@@ -18,6 +20,8 @@
 - [Page prefetching](http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching)
 - SCSS Structure use [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/)
 - Write Document for SCSS using [SASSDOC](http://sassdoc.com/)
+- [Font awesome 5.0.10](https://fontawesome.com/icons?d=gallery&s=brands,light,regular,solid&m=free)
+- [Material Design Icon](https://materialdesignicons.com/)
 
 
 ## Some Tips
@@ -33,9 +37,18 @@
 - run `yarn` or `npm install`
 - run `gulp` or `yarn dev`
 
+
+### How to enable or disable icon pack
+- Edit in file scss/styles
+- Find block : `$Icon packages`
+
+### How to use icon pack
+- fontawesome: `<i class="fa fa-play"></i>`, replace `play` by icon name.
+- materialdesignicon: `<i class="mdi mdi-play-circle"></i>`, replace `play-circle` by icon name.
+
 ### For production
 - Let use `min` files.
-- 
+
 
 # Sassy Starter [![Stories in Ready](https://badge.waffle.io/minamarkham/sassy-starter.png?label=ready&title=Ready)](https://waffle.io/minamarkham/sassy-starter)
 
