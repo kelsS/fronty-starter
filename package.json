@@ -55,6 +55,7 @@
     "imagemin-pngquant": "^5.1.0",
     "jshint": "^2.9.5",
     "minimatch": "^3.0.4",
+    "nunjucks": "^3.1.3",
     "run-sequence": "^2.2.1",
     "sassdoc": "^2.5.0",
     "vinyl-paths": "^2.0.0"
