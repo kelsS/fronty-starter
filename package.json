@@ -3,16 +3,16 @@
   "title": "Sassy Starter",
   "description": "A starter toolkit based on Scalable and Modular Architecture for CSS (SMACSS) for Sass (SCSS) projects",
   "author": {
-    "name": "Tidusvn05",
-    "url": "https://github.com/tidusvn05"
+    "name": "kelsS",
+    "url": "https://github.com/kelsS"
   },
   "version": "1.0.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/minamarkham/sassy-starter.git"
+    "url": "git://github.com/kelsS/sassy-starter.git"
   },
-  "homepage": "https://github.com/tidusvn05/sassy-starter",
+  "homepage": "https://github.com/kelsS/sassy-starter",
   "keywords": [
     "sass",
     "scss",
@@ -27,7 +27,7 @@
     "build": "gulp build"
   },
   "bugs": {
-    "url": "https://github.com/tidusvn05/sassy-starter/issues"
+    "url": "https://github.com/kelsS/sassy-starter/issues"
   },
   "dependencies": {},
   "devDependencies": {
@@ -54,6 +54,7 @@
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.1.0",
     "jshint": "^2.9.5",
+    "minimatch": "^3.0.4",
     "run-sequence": "^2.2.1",
     "sassdoc": "^2.5.0",
     "vinyl-paths": "^2.0.0"
