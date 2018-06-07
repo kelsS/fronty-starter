@@ -5,7 +5,7 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     uglify      = require('gulp-uglify'),
     jshint      = require('gulp-jshint'),
-    prefix      = require('gulp-autoprefixer'),
+    prefix      = require('autoprefixer'),
     browserSync = require('browser-sync'),
     reload      = browserSync.reload,
     htmlmin     = require('gulp-htmlmin'),
@@ -95,12 +95,15 @@ gulp.task('clean:dist', function() {
 
 
 gulp.task('styles', function() {
+  var postcss = require('gulp-postcss');
+  var autoprefixer = require('autoprefixer');
   return gulp.src(bases.app + 'scss/styles.scss')
     .pipe(plumber({errorHandler: onError}))
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions))
     .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(prefix(prefixerOptions))
+    // .pipe(prefix())
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(bases.dist + 'css'))
     .pipe(reload({stream:true}))
@@ -114,12 +117,15 @@ gulp.task('styles', function() {
 });
 
 gulp.task('themes', function() {
+  var postcss = require('gulp-postcss');
+  var autoprefixer = require('autoprefixer');
   return gulp.src(bases.app + 'scss/themes/*.scss')
     .pipe(plumber({errorHandler: onError}))
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions))
     .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(prefix(prefixerOptions))
+    // .pipe(prefix())
+    .pipe(postcss([ autoprefixer() ]))
     .pipe(gulp.dest(bases.dist + 'css/themes'))
     .pipe(reload({stream:true}))
     .pipe(cleanCSS({debug: true}, function(details) {
