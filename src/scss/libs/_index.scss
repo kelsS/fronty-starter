@@ -17,4 +17,5 @@
 // $Normalize
 // ==========================================================================
 
-@import 'normalize';
+// @import 'normalize'; 
+// do not need to use normalize here because it is getting pulled in with Bootstrap 4's _reboot.scss file
