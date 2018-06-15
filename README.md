@@ -14,6 +14,14 @@
 - Added icon pack fontawesome 5.0.10 free version.
 - Added icon pack materialdesignicons 2.3.54 free version.
 
+# Changed by [kelsS](https://github.com/kelsS/)
+- Updated project to use [Yarn](https://yarnpkg.com/lang/en/)
+- Changed from gulp-autoprefixer to [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+- Add use of [gulp-postcss](https://www.npmjs.com/package/gulp-postcss)
+- Add [Nunjucks HTML Templating](https://www.npmjs.com/package/gulp-nunjucks)
+- Updated npm packages as of (2018-06-15)
+- Copy Bootstrap 4 SCSS from node_modules to src folder
+
 # Reference Documents/Links
 - [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
 - [Assets prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching)
