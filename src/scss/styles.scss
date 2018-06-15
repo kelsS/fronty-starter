@@ -84,7 +84,12 @@ $pesticide-debug-depth: false;
 // ==========================================================================
 // $Print
 // ==========================================================================
-@import 'states/print';
+// @import 'states/print';
+
+/*
+** Now uses Bootstrap 4 print styles by default
+** file path to @import of Bootstrap 4 print styles: libs/bootstrap4/bootstrap.scss
+*/
 
 // ==========================================================================
 // $Fonts
