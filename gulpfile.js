@@ -182,7 +182,7 @@ gulp.task('copy', function() {
     .pipe(reload({stream:true}));
 
   // copy icons to dist directly
-  gulp.src(bases.app + 'icons/**/*.*')
+  gulp.src(bases.app + 'favicons/**/*.*')
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(gulp.dest(bases.dist))
     .pipe(reload({stream:true}));
@@ -202,7 +202,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('sass-lint', function() {
-  gulp.src([bases.app + 'scss/**/*.scss', '!' + bases.app + 'scss/libs/**/*.scss', '!' + bases.app + 'scss/states/_print.scss'])
+  gulp.src([bases.app + 'scss/**/*.scss', '!' + bases.app + 'scss/libs/**/*.scss', '!' + bases.app + 'scss/libs/bootstrap4/_print.scss'])
     .pipe(sassLint())
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
