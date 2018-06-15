@@ -46,6 +46,8 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-jshint": "^2.1.0",
     "gulp-notify": "^3.2.0",
+    "gulp-nunjucks": "^4.0.0",
+    "gulp-nunjucks-render": "^2.2.2",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.0",

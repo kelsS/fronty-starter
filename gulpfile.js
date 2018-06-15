@@ -9,6 +9,7 @@ var gulp        = require('gulp'),
     browserSync = require('browser-sync'),
     reload      = browserSync.reload,
     htmlmin     = require('gulp-htmlmin'),
+    nunjucks    = require('gulp-nunjucks-render')
     size        = require('gulp-size'),
     imagemin    = require('gulp-imagemin'),
     pngquant    = require('imagemin-pngquant'),
@@ -29,7 +30,7 @@ var gulp        = require('gulp'),
 
 var settings = {
   minHtml: false,
-  removeHtmlComment: false,
+  removeHtmlComment: true,
 };
 
 var bases = {
@@ -82,7 +83,9 @@ var sassOptions = {
 };
 
 var prefixerOptions = {
-  browsers: ['last 2 versions']
+  browsers: ['last 5 versions', 'dead'],
+  grid: true,
+  stats: '>= 0.1%'
 };
 
 // BUILD SUBTASKS
@@ -93,6 +96,10 @@ gulp.task('clean:dist', function() {
     .pipe(vinylPaths(del));
 });
 
+// -----------------------------------------------------------------------------
+// Style Compiling
+// -----------------------------------------------------------------------------
+
 
 gulp.task('styles', function() {
   var postcss = require('gulp-postcss');
@@ -102,7 +109,6 @@ gulp.task('styles', function() {
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions))
     .pipe(size({ gzip: true, showFiles: true }))
-    // .pipe(prefix())
     .pipe(postcss([ autoprefixer() ]))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(bases.dist + 'css'))
@@ -116,6 +122,10 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(bases.dist + 'css'))
 });
 
+// -----------------------------------------------------------------------------
+// Theme Compiling
+// -----------------------------------------------------------------------------
+
 gulp.task('themes', function() {
   var postcss = require('gulp-postcss');
   var autoprefixer = require('autoprefixer');
@@ -124,7 +134,6 @@ gulp.task('themes', function() {
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions))
     .pipe(size({ gzip: true, showFiles: true }))
-    // .pipe(prefix())
     .pipe(postcss([ autoprefixer() ]))
     .pipe(gulp.dest(bases.dist + 'css/themes'))
     .pipe(reload({stream:true}))
@@ -136,6 +145,10 @@ gulp.task('themes', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(bases.dist + 'css/themes'))
 });
+
+// -----------------------------------------------------------------------------
+// Browsersync Server
+// -----------------------------------------------------------------------------
 
 gulp.task('browser-sync', function() {
   browserSync({
@@ -150,11 +163,15 @@ gulp.task('deploy', function() {
     .pipe(deploy());
 });
 
-gulp.task('js-app', function() {
-  gulp.src(bases.app + 'js/*.js')
+// -----------------------------------------------------------------------------
+// App JavaScript
+// -----------------------------------------------------------------------------
+
+gulp.task('js-global', function() {
+  gulp.src(bases.app + 'js/global.js')
     
     // .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(concat('app.js'))
+    .pipe(concat('global.js'))
     .pipe(gulp.dest(bases.dist + 'js'))
     .pipe(reload({stream:true}))
     .pipe(uglify())
@@ -163,8 +180,38 @@ gulp.task('js-app', function() {
     .pipe(gulp.dest(bases.dist + 'js'));
 });
 
+gulp.task('js-inner', function() {
+  gulp.src(bases.app + 'js/inner.js')
+    
+    // .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(concat('inner.js'))
+    .pipe(gulp.dest(bases.dist + 'js'))
+    .pipe(reload({stream:true}))
+    .pipe(uglify())
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(bases.dist + 'js'));
+});
+
+gulp.task('js-home', function() {
+  gulp.src(bases.app + 'js/home.js')
+    
+    // .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(concat('home.js'))
+    .pipe(gulp.dest(bases.dist + 'js'))
+    .pipe(reload({stream:true}))
+    .pipe(uglify())
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(bases.dist + 'js'));
+});
+
+// -----------------------------------------------------------------------------
+// Vendor Javascript
+// -----------------------------------------------------------------------------
+
 gulp.task('js-libs', function() {
-  gulp.src([bases.app + 'js/libs/*.js', '!' + bases.app + 'js/libs/modernizr.js'])
+  gulp.src([bases.app + 'js/libs/**/*.js', '!' + bases.app + 'js/libs/modernizr.js'])
     .pipe(uglify())
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(concat('libs.js'))
@@ -172,6 +219,9 @@ gulp.task('js-libs', function() {
     .pipe(reload({stream:true}));
 });
 
+// -----------------------------------------------------------------------------
+// Copy Folders and Files Directly To Dist
+// -----------------------------------------------------------------------------
 
 gulp.task('copy', function() {
 
@@ -208,6 +258,10 @@ gulp.task('sass-lint', function() {
     .pipe(sassLint.failOnError());
 });
 
+// -----------------------------------------------------------------------------
+// HTML Minification - Default setting: HTML not minified but comments removed
+// -----------------------------------------------------------------------------
+
 gulp.task('minify-html', function() {
   var pipelin = gulp.src(bases.app + './*.html');
   if(settings.removeHtmlComment) {
@@ -221,13 +275,40 @@ gulp.task('minify-html', function() {
     .pipe(reload({stream:true}));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(bases.app + 'js/libs/*.js', ['js-libs']);
-  gulp.watch(bases.app + 'js/*.js', ['js-app']);
-  gulp.watch(bases.app + 'scss/**/*.scss', ['styles']);
-  gulp.watch(bases.app + './*.html', ['minify-html']);
-  gulp.watch(bases.app + 'img/*', ['imagemin']);
+// -----------------------------------------------------------------------------
+// Nunjucks HTML Templating
+// -----------------------------------------------------------------------------
+
+gulp.task('nunjucks', function() {
+  // Gets .html and .nunjucks files in pages
+  return gulp.src(bases.app + 'pages/**/*.html')
+  // Renders template with nunjucks
+  .pipe(nunjucks({
+      path: [bases.app + '/templates']
+    }))
+  // output files in app folder
+  .pipe(gulp.dest(bases.dist))
 });
+
+// -----------------------------------------------------------------------------
+// Watchers
+// -----------------------------------------------------------------------------
+
+gulp.task('watch', function() {
+  gulp.watch(bases.app + 'js/libs/**/*.js', ['js-libs']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'js/global.js', ['js-global']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'js/inner.js', ['js-inner']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'js/home.js', ['js-home']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'scss/**/*.scss', ['styles']).on('change', browserSync.reload);
+  gulp.watch(bases.app + '/templates/**/*.html', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + '/pages/**/*.html', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + './*.html', ['minify-html']);
+  gulp.watch(bases.app + 'img/*', ['imagemin']).on('change', browserSync.reload);
+});
+
+// -----------------------------------------------------------------------------
+// Image Minification
+// -----------------------------------------------------------------------------
 
 gulp.task('imagemin', function() {
   return gulp.src(bases.app + 'img/**/*')
@@ -238,6 +319,10 @@ gulp.task('imagemin', function() {
     }))
     .pipe(gulp.dest(bases.dist + 'img'));
 });
+
+// -----------------------------------------------------------------------------
+// Sass/SCSS Docs
+// -----------------------------------------------------------------------------
 
 gulp.task('sassdoc', function () {
   var options = {
@@ -261,9 +346,9 @@ gulp.task('sassdoc', function () {
 // ------------
 
 gulp.task('default', function(done) {
-  runSequence('clean:dist', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
 });
 
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'copy', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'styles', 'copy', done);
 });
