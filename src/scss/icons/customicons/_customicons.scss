@@ -1,0 +1,13 @@
+// ==========================================================================
+// $Custom SVG Icons and Sprites Paths
+// ==========================================================================
+
+$get-asset-custom-arrows-example: "icons/custom-arrows-example.png";
+
+// $Usage
+// Example used as Background image
+/*
+    button {
+        background: url(#{get-asset-custom-arrows-example}) repeat-x fixed 0 0;
+    }
+*/
