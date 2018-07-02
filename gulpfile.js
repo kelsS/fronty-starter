@@ -235,8 +235,7 @@ gulp.task('js-libs', function() {
   gulp.src([bases.app + 'js/libs/**/*.js', '!' + bases.app + 'js/libs/modernizr.js'])
     .pipe(uglify())
     .pipe(size({ gzip: true, showFiles: true }))
-    .pipe(concat('libs.js'))
-    .pipe(gulp.dest(bases.dist + 'js'))
+    .pipe(gulp.dest(bases.dist + 'js/libs'))
     .pipe(reload({stream:true}));
 });
 
