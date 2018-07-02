@@ -71,10 +71,10 @@ Styles are broken down into the following groups: **Base, Layout, Atoms, Molecul
 ## Getting Started
 
 1. If needed, [install](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm) `node` and `npm` (Node Package Manager).
-- If needed, install `gulp` with `yarn install gulp -g`.
+- If needed, install `gulp` with `yarn global add gulp`.
 - Clone this repo with `git clone https://github.com/minamarkham/sassy-starter` or download the zip.
 - In terminal, `cd` to the folder containing your project. Alternatively, you can type `cd ` and drag the location of the folder into your terminal and hit enter (on Macs).
-- In terminal, type `yarn install`. If (and _only_ if) `yarn install` isn't working, try `yarn npm install`. This should install all [dependencies](#dependencies).
+- In terminal, type `yarn install`. If (and _only_ if) `yarn install` isn't working, try `sudo yarn install`. This should install all [dependencies](#dependencies).
 - In terminal, enter `gulp`.
 - Your browser should open at `http://localhost:3000`. You can access this same page on any device on the same wifi network and they'll see whats on your screen. It'll even sync scrolls and clicks!
 - Edit your code inside of the `src` folder.
@@ -114,27 +114,38 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 
 ## Dependencies
 ```
-  "browser-sync": "^2.0.0-rc4",
-  "colors": "^1.1.2",
-  "del": "^2.0.2",
-  "gulp-autoprefixer": "^2.1.0",
-  "gulp-concat": "^2.4.3",
-  "gulp-gh-pages": "^0.4.0",
-  "gulp-imagemin": "^2.1.0",
-  "gulp-jshint": "^1.9.0",
-  "gulp-minify-css": "^0.3.12",
-  "gulp-minify-html": "^0.1.8",
-  "gulp-notify": "^2.2.0",
-  "gulp-plumber": "^0.6.6",
-  "gulp-rename": "^1.2.0",
-  "gulp-sass": "^1.3.2",
-  "gulp-sass-lint": "1.0.1",
-  "gulp-size": "^1.2.0",
-  "gulp-sourcemaps": "^1.5.2",
-  "gulp-uglify": "^1.0.2",
-  "imagemin-pngquant": "^4.0.0",
-  "sassdoc": "^2.1.15",
-  "vinyl-paths": "^2.0.0"
+"autoprefixer": "^8.6.0",
+"bootstrap": "^4.1.1",
+"browser-sync": "^2.23.7",
+"colors": "^1.2.1",
+"del": "^3.0.0",
+"gulp": "^3.9.1",
+"gulp-clean-css": "^3.9.3",
+"gulp-concat": "^2.4.3",
+"gulp-gh-pages": "^0.5.4",
+"gulp-htmlmin": "^4.0.0",
+"gulp-imagemin": "^4.1.0",
+"gulp-jshint": "^2.1.0",
+"gulp-notify": "^3.2.0",
+"gulp-nunjucks": "^4.0.0",
+"gulp-nunjucks-render": "^2.2.2",
+"gulp-plumber": "^1.2.0",
+"gulp-postcss": "^7.0.1",
+"gulp-rename": "^1.2.0",
+"gulp-sass": "^4.0.1",
+"gulp-sass-lint": "1.3.4",
+"gulp-size": "^3.0.0",
+"gulp-sourcemaps": "^2.6.4",
+"gulp-strip-comments": "^2.5.2",
+"gulp-uglify": "^3.0.0",
+"imagemin-pngquant": "^5.1.0",
+"jshint": "^2.9.5",
+"minimatch": "^3.0.4",
+"nunjucks": "^3.1.3",
+"popper.js": "^1.14.3",
+"run-sequence": "^2.2.1",
+"sassdoc": "^2.5.0",
+"vinyl-paths": "^2.0.0"
 ```
 
 ## Tasks
