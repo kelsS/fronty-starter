@@ -30,7 +30,27 @@
 
         {% include "shared/footer.html" %}
 
-        {% include "partials/body-end.html" %}
+        <!-- SCRIPTS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="js/libs.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/home.js"></script>
+              
+        <!-- Google Analytics -->
+              
+        <!-- Browser Update Notification -->
+        <!-- test url: site-url/#test-bu -->
+        <script> 
+        var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,style:"corner",api:2018.06 }; 
+        function $buo_f(){ 
+         var e = document.createElement("script"); 
+         e.src = "//browser-update.org/update.min.js"; 
+         document.body.appendChild(e);
+        };
+        try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+        catch(e){window.attachEvent("onload", $buo_f)}
+        </script>
 
     </body>
 </html> 

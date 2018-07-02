@@ -21,6 +21,9 @@
 - Add [Nunjucks HTML Templating](https://www.npmjs.com/package/gulp-nunjucks)
 - Updated npm packages as of (2018-06-15)
 - Copy Bootstrap 4 SCSS from node_modules to src folder
+- Remove bootstrap 4 pricing template
+- Change to use Boostrap 4 reboot by default
+- Change to use Bootstrap 4 print styles by default
 
 # Reference Documents/Links
 - [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
@@ -39,11 +42,12 @@
 - change `$pesticide-debug-outline` and `$pesticide-debug-depth` to `true`
 
 ### How to start for beginner
-- Install gulp: `npm install gulp -g`
-- git clone git@github.com:tidusvn05/sassy-starter.git
+- Install gulp: `yarn global add gulp`
+- git clone git@github.com:kelsS/sassy-starter.git
 - cd sassy-starter
-- run `yarn` or `npm install`
-- run `gulp` or `yarn dev`
+- run `yarn install`
+- run `yarn dev` or 
+- run 'gulp'
 
 
 ### How to enable or disable icon pack
@@ -51,8 +55,8 @@
 - Find block : `$Icon packages`
 
 ### How to use icon pack
-- fontawesome: `<i class="fa fa-play"></i>`, replace `play` by icon name.
-- materialdesignicon: `<i class="mdi mdi-play-circle"></i>`, replace `play-circle` by icon name.
+- fontawesome: `<span class="fa fa-play"></span>`, replace `play` by icon name.
+- materialdesignicon: `<span class="mdi mdi-play-circle"></span>`, replace `play-circle` by icon name.
 
 ### For production
 - Let use `min` files.
@@ -67,10 +71,10 @@ Styles are broken down into the following groups: **Base, Layout, Atoms, Molecul
 ## Getting Started
 
 1. If needed, [install](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm) `node` and `npm` (Node Package Manager).
-- If needed, install `gulp` with `npm install gulp -g`.
+- If needed, install `gulp` with `yarn install gulp -g`.
 - Clone this repo with `git clone https://github.com/minamarkham/sassy-starter` or download the zip.
 - In terminal, `cd` to the folder containing your project. Alternatively, you can type `cd ` and drag the location of the folder into your terminal and hit enter (on Macs).
-- In terminal, type `npm install`. If (and _only_ if) `npm install` isn't working, try `sudo npm install`. This should install all [dependencies](#dependencies).
+- In terminal, type `yarn install`. If (and _only_ if) `yarn install` isn't working, try `yarn npm install`. This should install all [dependencies](#dependencies).
 - In terminal, enter `gulp`.
 - Your browser should open at `http://localhost:3000`. You can access this same page on any device on the same wifi network and they'll see whats on your screen. It'll even sync scrolls and clicks!
 - Edit your code inside of the `src` folder.
@@ -80,6 +84,7 @@ Styles are broken down into the following groups: **Base, Layout, Atoms, Molecul
 _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the default `$theme` variable, and run `gulp themes`._
 
 ## Requirements
+- Yarn
 - Node/NPM
 - LibSass
 - Gulp

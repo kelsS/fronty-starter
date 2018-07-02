@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Mina Markham 2018 Kelsey Swanson
+Copyright (c) 2015 Mina Markham 2018 Updated by Kelsey Swanson [kelsS](https://github.com/kelsS)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
