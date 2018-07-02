@@ -55,6 +55,15 @@
   @return $target / $context + 0rem;
 }
 
+// How to use function
+/*
+h1 {
+  font-size: rem(40, 16);
+  first value: target pixel size
+  second value: base font size
+}
+*/
+
 // px()
 //
 // Convert em values to pixels.
@@ -125,8 +134,8 @@
 // @returns   - `map-deep-get($breakpoints, $point...)`
 // @source    - http://www.sitepoint.com/extra-map-functions-sass/
 
-@function bp($point...) {
-  @if not map-has-nested-keys($breakpoints, $point...) {
-    @warn 'No breakpoint found for `#{inspect($point...)}` in $breakpoints map. Property omitted.';
-  } @return map-deep-get($breakpoints, $point...);
-}
+// @function bp($point...) {
+//   @if not map-has-nested-keys($breakpoints, $point...) {
+//     @warn 'No breakpoint found for `#{inspect($point...)}` in $breakpoints map. Property omitted.';
+//   } @return map-deep-get($breakpoints, $point...);
+// }

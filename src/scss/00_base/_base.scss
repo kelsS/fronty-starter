@@ -40,4 +40,5 @@ h5,
 h6 {
   font-family: $font-family-display;
   font-weight: normal;
+  font-size: rem(40, 16); // uses the rem function --> found in: utilities/_functions.scss
 }
