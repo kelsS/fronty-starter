@@ -122,6 +122,27 @@ gulp.task('styles', function() {
     .pipe(gulp.dest(bases.dist + 'css'))
 });
 
+gulp.task('bootstrap', function() {
+  var postcss = require('gulp-postcss');
+  var autoprefixer = require('autoprefixer');
+  return gulp.src(bases.app + 'scss/bootstrap.scss')
+    .pipe(plumber({errorHandler: onError}))
+    .pipe(sourcemaps.init())
+    .pipe(sass(sassOptions))
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(rename('bootstrap.css'))
+    .pipe(gulp.dest(bases.dist + 'css'))
+    .pipe(reload({stream:true}))
+    .pipe(cleanCSS({debug: true}, function(details) {
+      console.log(details.name + ': ' + details.stats.originalSize);
+      console.log(details.name + ': ' + details.stats.minifiedSize);
+    }))
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(bases.dist + 'css'))
+});
+
 // -----------------------------------------------------------------------------
 // Theme Compiling
 // -----------------------------------------------------------------------------
@@ -346,9 +367,9 @@ gulp.task('sassdoc', function () {
 // ------------
 
 gulp.task('default', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
 });
 
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'styles', 'copy', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'copy', done);
 });
