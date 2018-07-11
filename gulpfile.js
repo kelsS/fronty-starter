@@ -1,4 +1,5 @@
 var gulp        = require('gulp'),
+    babel       = require('gulp-babel'),
     sass        = require('gulp-sass'),
     rename      = require('gulp-rename'),
     cleanCSS    = require('gulp-clean-css'),
@@ -190,8 +191,7 @@ gulp.task('deploy', function() {
 
 gulp.task('js-global', function() {
   gulp.src(bases.app + 'js/global.js')
-    
-    // .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(babel())
     .pipe(concat('global.js'))
     .pipe(gulp.dest(bases.dist + 'js'))
     .pipe(reload({stream:true}))
@@ -203,8 +203,7 @@ gulp.task('js-global', function() {
 
 gulp.task('js-inner', function() {
   gulp.src(bases.app + 'js/inner.js')
-    
-    // .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(babel())
     .pipe(concat('inner.js'))
     .pipe(gulp.dest(bases.dist + 'js'))
     .pipe(reload({stream:true}))
@@ -216,8 +215,7 @@ gulp.task('js-inner', function() {
 
 gulp.task('js-home', function() {
   gulp.src(bases.app + 'js/home.js')
-    
-    // .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(babel())
     .pipe(concat('home.js'))
     .pipe(gulp.dest(bases.dist + 'js'))
     .pipe(reload({stream:true}))
