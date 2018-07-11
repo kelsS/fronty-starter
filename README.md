@@ -14,7 +14,7 @@
 - Added icon pack fontawesome 5.0.10 free version.
 - Added icon pack materialdesignicons 2.3.54 free version.
 
-# Changed by [kelsS](https://github.com/kelsS/)
+# Change by [kelsS](https://github.com/kelsS/)
 - Updated project to use [Yarn](https://yarnpkg.com/lang/en/)
 - Changed from gulp-autoprefixer to [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 - Add use of [gulp-postcss](https://www.npmjs.com/package/gulp-postcss)
@@ -24,6 +24,9 @@
 - Remove bootstrap 4 pricing template
 - Change to use Boostrap 4 reboot by default
 - Change to use Bootstrap 4 print styles by default
+- Add gulp-babel compiling
+- Add 00-03 naming convention to Base, Atoms, Molecules, and Organisms so that they are easier to find in folder structure 
+- Split bootstrap.css and styles.css into two separate files in dist
 
 # Reference Documents/Links
 - [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
@@ -115,11 +118,14 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 ## Dependencies
 ```
 "autoprefixer": "^8.6.0",
+"babel-core": "6",
+"babel-preset-env": "^1.7.0",
 "bootstrap": "^4.1.1",
 "browser-sync": "^2.23.7",
 "colors": "^1.2.1",
 "del": "^3.0.0",
 "gulp": "^3.9.1",
+"gulp-babel": "^7.0.1",
 "gulp-clean-css": "^3.9.3",
 "gulp-concat": "^2.4.3",
 "gulp-gh-pages": "^0.5.4",
@@ -151,9 +157,12 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 ## Tasks
 - clean:dist
 - styles
+- bootstrap
 - browser-sync
 - deploy
-- js-app
+- js-global
+- js-inner
+- js-home
 - js-libs
 - sass-lint
 - minify-html
@@ -164,19 +173,24 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 - themes
 - default
   - clean:dist
-  - browser-sync
-  - js-app
+  - js-global
+  - js-inner
+  - js-home
   - js-libs
   - imgmin
   - minify-html
   - styles
+  - browser-sync
   - watch
 - build
   - clean:dist
-  - js-app
+  - js-global
+  - js-inner
+  - js-home
   - js-libs
   - imgmin
   - minify-html
+  - bootstrap
   - styles
   - copy
 - audit
@@ -190,6 +204,8 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 ├── .htaccess
 ├── .sass-lint.yml
 ├── .travis.yml
+├── .babelrc
+├── .browserslistrc
 ├── src
 │   ├── browserconfig.xml
 │   ├── crossdomain.xml
@@ -206,28 +222,33 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 │   ├── js
 │   ├── robots.txt
 │   └── scss
-│       ├── atoms
-│       │   └── _index.scss
-│       ├── base
+│       ├── 00_base
 │       │   ├── _base.scss
+│       │   └── _index.scss
+│       ├── 01_atoms
+│       │   └── _index.scss
+│       ├── 02_molecules
+│       │   └── _index.scss
+│       ├── 03_organisms
+│       │   └── _index.scss
+│       ├── icons
+│       │   └── fontawesome
+│       │   └── materialdesignicons
 │       │   └── _index.scss
 │       ├── layout
 │       │   └── _index.scss
 │       ├── libs
+│       │   ├── bootstrap4
 │       │   ├── _index.scss
 │       │   ├── _normalize.scss
 │       │   └── _pesticide.scss
-│       ├── molecules
-│       │   └── _index.scss
-│       ├── organisms
-│       │   └── _index.scss
 │       ├── overrides
 │       │   └── _index.scss
 │       ├── states
 │       │   ├── _index.scss
 │       │   └── _print.scss
 │       ├── themes
-│       │   └── rebeccapurple.scss
+│       │   └── themes.scss
 │       ├── utilities
 │       │   ├── _colors.scss
 │       │   ├── _config.scss
