@@ -4,9 +4,11 @@
     <!-- Read this: https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html -->
 
     <!-- Most restrictive policy: -->
-    <site-control permitted-cross-domain-policies="none"/>
+    <!-- <site-control permitted-cross-domain-policies="none"/> -->
 
     <!-- Least restrictive policy: -->
+    <!-- Only turn on for local development -->
+    <site-control permitted-cross-domain-policies="all"/>
     <!--
     <site-control permitted-cross-domain-policies="all"/>
     <allow-access-from domain="*" to-ports="*" secure="false"/>
