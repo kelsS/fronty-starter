@@ -46,7 +46,7 @@
 
 ### How to start for beginner
 - Install gulp: `yarn global add gulp`
-- git clone git@github.com:kelsS/sassy-starter.git
+- git clone git@github.com:kelsS/fronty-starter.git
 - cd sassy-starter
 - run `yarn install`
 - run `yarn dev` or 
