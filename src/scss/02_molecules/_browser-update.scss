@@ -2,12 +2,7 @@
 
 body {
     .buorg {
-        position: absolute;
-        position: fixed;
         z-index: 111111;
-        width: 100%;
-        top: 0px;
-        left: 0px;
         border-bottom: 1px solid #A29330;
         text-align: center;
         color: #000;
@@ -64,7 +59,7 @@ body {
     }
 
     .buorg-fadeout {
-        transition: visibility 0s 8.5s, opacity 8s ease-out .5s;
+        transition: visibility 0s 3s, opacity 3s ease-out .3s;
     }
 
     .buorg-icon {
