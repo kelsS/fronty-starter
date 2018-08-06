@@ -1,0 +1,25 @@
+// Card Molecule
+
+h3 {
+    color: #00573c;
+}
+
+article {
+    background: #f5f0ef;
+    padding: 0;
+    float: left;
+    margin: rem(29, 16) rem(30,16);
+    width: 100%;
+    @include media-breakpoint-up(lg) {
+        width: 25%;
+    }
+    @include media-breakpoint-up(xl) {
+        width: 33.333333333333333%;
+    }
+    img {
+        width: 100%;
+    }
+    .card-text {
+        padding: rem(30,16) rem(24,16) rem(44,16) rem(24,16);
+    }
+}
