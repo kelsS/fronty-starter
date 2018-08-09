@@ -1,9 +1,15 @@
 {# Inner Slider Macro #}
 
-{% macro innerSlide(imgSrc, imgAlt, headingLvl, headingTxt, desc) %}
+{# {% macro innerSlide(imgSrc, imgAlt, headingLvl, headingTxt, desc) %}
     <div>
         <img src="{{imgSrc}}" alt="{{imgAlt}}">
         <h{{headingLvl}}>{{headingTxt}}</h{{headingLvl}}>
         <p>{{desc}}</p>
     </div>
+{% endmacro %} #}
+
+{% macro innerSlider() %}
+    <section class="js-inner-slider">
+        {{ caller() }}
+    </section>
 {% endmacro %}

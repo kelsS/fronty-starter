@@ -1,6 +1,21 @@
 {# Ordered and Unorder List Macros #}
 
-{% macro unList(listTxt, linkTxt)%}
-    <li>{{listTxt}}</li>
-    <a href="{{linkHref}}" class="link-cta">{{linkTxt}}</a>
+{% macro unList() %}
+    <ul>
+        {{ caller() }}
+    </ul>
 {% endmacro %}
+
+{% macro orList() %}
+    <ol>
+        {{ caller() }}
+    </ol>
+{% endmacro %}
+
+{# {% macro listLi(listTxt) %}
+    <li>{{listTxt}}</li>
+{% endmacro %} #}
+
+{# {% macro orList(listTxt) %}
+    <li>{{listTxt}}</li>
+{% endmacro %} #}

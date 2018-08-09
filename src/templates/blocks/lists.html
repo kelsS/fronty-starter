@@ -1,21 +1,10 @@
 {# Ordered and Unorder List Blocks #}
-<ul>
-    {% for item in items %}
-      <li>{{ item.title }}</li>
-    {% else %}
-      <li>This would display if the 'item' collection were empty</li>
-    {% endfor %}
+{# <ul>
+    {% import "macros/lists.html" as unList1 %}
+    {{ unList1.unList("List text") }}
 </ul>
 
-<script>
-    var items = [
-        { 
-            title: "foo", 
-            id: 1 
-        }, 
-        { 
-            title: "bar", 
-            id: 2
-        }
-    ];
-</script
+<ol>
+    {% import "macros/lists.html" as orList1 %}
+    {{ orList1.orList("List text") }}
+</ol> #}

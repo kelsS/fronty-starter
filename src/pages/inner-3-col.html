@@ -1,0 +1,103 @@
+{#
+    Standerd Inner Three Column - Left Sidebar/Main/Right Sidebar
+#}
+
+{% set custom_classes = "standard-inner" %}
+{% extends "default-inner.html" %}
+{% block content %}
+
+
+<div class="container">
+    {# {% include "macros/breadcrumb.html" %} #}
+    {# {% include "macros/page-title.html" %} #}
+  <h1 class="mb-0 pb-0">{{pageTitle}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+  {% include "shared/left-sidebar.html" %}
+  <main id="main-content" class="col-xl-6">    
+  {% from "macros/promos.html" import txtPromoAlt %}
+    {% call txtPromoAlt() %}
+        <h2>A Title Goes Here (H2)</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet. Olorepre mincto dundae qui od quassed utatemqui remoluptae plibusant plam, que pra quunt aut quissum nimus denimus sint. Sapera doluptamus</p>
+    {% endcall %}
+
+    <h3>Accordion Title Goes Here (H3)</h3>
+
+    <h3>Card Styles (H3)</h3>
+    {% import "macros/card.html" as card1 %}
+    {{ card1.card("3","Title Goes Here", "https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et.", "#", "Learn More") }}
+    
+    {% import "macros/card.html" as card2 %}
+    {{ card2.card("3","Extra Long Title Goes Here", "https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et.", "#", "Learn More") }}
+
+    <h3>Slider Title Goes Here (H3)</h3>    
+    {% from "macros/inner-slider.html" import innerSlider %}
+    {% call innerSlider() %}
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <p>Optional text below slider. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
+            </div>
+        </div>
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
+            </div>
+        </div>
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
+            </div>
+        </div>
+    {% endcall %}   
+
+    <h3>Form Title Goes Here (H3)</h3> 
+    
+    <h3>List Groups (H3)</h3>
+    <h4>An Ordered List Goes Here (H4)</h4>
+    {% from "macros/lists.html" import unList %}
+    {% call unList() %}
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+    {% endcall %}
+    
+    <h4>An Unordered List Goes Here (H4)</h4>
+    {% from "macros/lists.html" import orList %}
+    {% call orList() %}
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 4</li>
+    {% endcall %}
+
+    <h3>Text Styles (H3)</h3>
+
+    <h3>Image w/ Caption (H3)</h3>
+    {% import "macros/promos.html" as imgTxtPromo1 %}
+    {{ imgTxtPromo1.imgTxtPromo("https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit") }}
+
+    <h3>Tabs Title Goes Here (H3)</h3>
+
+    <h3>Table Title Goes Here (H3)</h3>
+   
+    {% import "macros/video.html" as video1 %}
+    {{ video1.vidPromo("3", "Video Title Here (H3)") }}
+    
+    {% from "macros/promos.html" import txtPromoAlt %}
+    {% call txtPromoAlt() %}
+        <h3>Quote in Text Style (H3)</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. “Basic Quote within text style. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscinean commodo ligula egit dolor.” Aenean massa. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa.or sit amet. Lorem i consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet.</p>
+    {% endcall %}
+  </main>
+  {% include "shared/right-sidebar.html" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block addscripts %}
+<script src="/js/standard-inner.js"></script>
+{% endblock %}

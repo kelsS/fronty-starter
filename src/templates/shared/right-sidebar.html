@@ -1,24 +1,72 @@
 <aside id="sidebar--second" class="col-xl-3 o-sidebar--second">
     {% import "macros/promos.html" as txtPromo1 %}
-    {{ txtPromo1.txtPromo("2", "Promo Title", "Example description", "#", "Learn more") }}
-
-    {% import "macros/link-cta.html" as linkCta1 %}
-    {{ linkCta1.linkCta("#", "Apply Now") }}
-
-    {% import "macros/link-cta.html" as linkCta2 %}
-    {{ linkCta2.linkCta("#", "Give") }}
+    {{ txtPromo1.txtPromo("2", "Promo Title Goes Here (H2)", "Check out the steps to apply.", "#", "Learn more") }}
 
     {% import "macros/promos.html" as imgPromo1 %}
-    {{ imgPromo1.imgPromo("https://picsum.photos/200/300/?random", "Image promo description", "#", "Learn More") }}
+    {{ imgPromo1.imgPromo("https://picsum.photos/200/300/?random", "A Promo Goes Here (H2)", "#", "Learn More") }}
+
+    {% from "macros/promos.html" import txtPromoAlt %}
+    {% call txtPromoAlt() %}
+        <h2>Got Questions? (H2)</h2>
+        <p>John Smith</p>
+        <p>We’re here to help. Contact us if you have questions.</p>
+        <a href="tel:+(xxx)xxx-xxxx">(xxx) xxx - xxxx</a>
+        <a href="mailto:john.smith@email.com">john.smith@email.com</a>
+    {% endcall %}
 
     {% import "macros/promos.html" as imgPromo2 %}
-    {{ imgPromo2.imgPromo("https://picsum.photos/200/300/?random", "Image promo description", "#", "Apply Now") }}
+    {{ imgPromo2.imgPromo("https://picsum.photos/200/300/?random", "A Promo Goes Here (H2)", "#", "Learn More") }}
+
+    {% from "macros/promos.html" import txtPromoAlt %}
+    {% call txtPromoAlt() %}
+        <h2>Promo Title Goes Here (H2)</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet. Olorepre mincto dundae qui od quassed utatemqui remoluptae plibusant plam, que pra quunt aut quissum nimus denimus sint. Sapera doluptamus</p>
+    {% endcall %}
 
     {% import "macros/video.html" as video1 %}
-    {{ video1.vidPromo("2", "Video Promo (h2)") }}
+    {{ video1.vidPromo("2", "Video Title Goes Here (H2)") }}
 
-    {% include "blocks/inner-slider.html" %}
+    {# {% include "blocks/inner-slider.html" %}     #}
+    <h2>News/Student Story Slider</h2>
+    {% from "macros/inner-slider.html" import innerSlider %}
+    {% call innerSlider() %}
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <h3>Example heading text</h3>
+                <p>Example description</p>
+            </div>
+        </div>
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <h3>Example heading text</h3>
+                <p>Example description</p>
+            </div>
+        </div>
+        <div class="inner-slide">
+            <div>
+                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+                <h3>Example heading text</h3>
+                <p>Example description</p>
+            </div>
+        </div>
+    {% endcall %}
 
-    {% include "blocks/lists.html" %}
+    {# {% include "blocks/lists.html" %} #}
+    
+    {# {% import "macros/lists.html" as list %} #}
+
+    <h2>Additional Resources (H2)</h2>
+    {% from "macros/lists.html" import unList %}
+    {% call unList() %}
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+        <li>List Item 6</li>
+        <li>List Item 7</li>
+    {% endcall %}
 
 </aside>
