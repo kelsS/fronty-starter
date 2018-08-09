@@ -1,0 +1,6 @@
+{# Ordered and Unorder List Macros #}
+
+{% macro unList(listTxt, linkTxt)%}
+    <li>{{listTxt}}</li>
+    <a href="{{linkHref}}" class="link-cta">{{linkTxt}}</a>
+{% endmacro %}
