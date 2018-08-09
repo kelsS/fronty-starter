@@ -318,8 +318,8 @@ gulp.task('watch', function() {
   gulp.watch(bases.app + 'js/inner.js', ['js-inner']).on('change', browserSync.reload);
   gulp.watch(bases.app + 'js/home.js', ['js-home']).on('change', browserSync.reload);
   gulp.watch(bases.app + 'scss/**/*.scss', ['styles']).on('change', browserSync.reload);
-  gulp.watch(bases.app + '/templates/**/*.html', ['nunjucks']).on('change', browserSync.reload);
-  gulp.watch(bases.app + '/pages/**/*.html', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + '/templates/**/*', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + '/pages/**/*', ['nunjucks']).on('change', browserSync.reload);
   gulp.watch(bases.app + './*.html', ['minify-html']);
   gulp.watch(bases.app + 'img/*', ['imagemin']).on('change', browserSync.reload);
 });

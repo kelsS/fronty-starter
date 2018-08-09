@@ -1,0 +1,22 @@
+<aside id="sidebar--second" class="col-xl-3 o-sidebar--second">
+    {% import "macros/promos.html" as txtPromo1 %}
+    {{ txtPromo1.txtPromo("2", "Promo Title", "Example description", "#", "Learn more") }}
+
+    {% import "macros/link-cta.html" as linkCta1 %}
+    {{ linkCta1.linkCta("#", "Apply Now") }}
+
+    {% import "macros/link-cta.html" as linkCta2 %}
+    {{ linkCta2.linkCta("#", "Give") }}
+
+    {% import "macros/promos.html" as imgPromo1 %}
+    {{ imgPromo1.imgPromo("https://picsum.photos/200/300/?random", "Image promo description", "#", "Learn More") }}
+
+    {% import "macros/promos.html" as imgPromo2 %}
+    {{ imgPromo2.imgPromo("https://picsum.photos/200/300/?random", "Image promo description", "#", "Apply Now") }}
+
+    {% import "macros/video.html" as video1 %}
+    {{ video1.vidPromo("2", "Video Promo (h2)") }}
+
+    {% include "blocks/inner-slider.html" %}
+
+</aside>

@@ -1,0 +1,33 @@
+{#
+    Standerd Inner Three Column - Left Sidebar/Main/Right Sidebar
+#}
+
+{% set custom_classes = "standard-inner" %}
+{% extends "default-inner.html" %}
+{% block content %}
+
+
+<div class="container">
+    {# {% include "macros/breadcrumb.html" %} #}
+    {# {% include "macros/page-title.html" %} #}
+  <h1 class="mb-0 pb-0">{{pageTitle}}</h1>
+</div>
+<div class="container">
+  <div class="row">
+  {% include "shared/left-sidebar.html" %}
+  <main id="main-content" class="col-xl-6">
+    {% import "macros/card.html" as card1 %}
+    {{ card1.card("3","Example Heading", "#", "Example alt text", "Example Description", "#", "Learn More") }}
+    
+    {% import "macros/card.html" as card2 %}
+    {{ card2.card("3","Example Heading 2", "#", "Example alt text", "Example Description 2", "#", "Learn More") }}
+  </main>
+  {% include "shared/right-sidebar.html" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block addscripts %}
+<script src="/js/standard-inner.js"></script>
+{% endblock %}

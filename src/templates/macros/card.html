@@ -1,0 +1,12 @@
+{# Card Macro #}
+
+{% macro card(headingLvl,headingTxt, imgSrc, imgAlt, desc, linkHref, linkTxt) %}
+
+    <article>
+        <img src="{{imgSrc}}" alt="{{imgAlt}}">
+        <h{{headingLvl}}>{{headingTxt}}</h{{headingLvl}}>
+        <p>{{desc}}</p>
+        <a href="{{linkHref}}">{{linkTxt}}</a>
+    </article>
+
+{% endmacro %}

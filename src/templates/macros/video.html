@@ -1,0 +1,8 @@
+{# Video Promo Macro #}
+
+{% macro vidPromo(headingLvl, headingTxt) %}
+    <div class="video-promo">
+        <h{{headingLvl}}>{{headingTxt}}</h{{headingLvl}}>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ScMzIvxBSi4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+{% endmacro%}

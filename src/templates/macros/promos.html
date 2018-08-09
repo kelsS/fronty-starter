@@ -1,0 +1,16 @@
+{# Promo Call to Action Macros #}
+
+{% macro imgPromo(imgUrl, desc, linkHref, linkTxt)%}
+    <div class="image-promo" style="background-image:url('{{imgUrl}}');">
+        <span class="img-promo-heading">{{desc}}</span>
+        <a href="{{linkHref}}" class="link-cta">{{linkTxt}}</a>
+    </div>
+{% endmacro%}
+
+{% macro txtPromo(headingLvl, headingTxt, desc, linkHref, linkTxt)%}
+    <div class="text-promo">
+        <h{{headingLvl}}>{{headingTxt}}</h{{headingLvl}}>
+        <p>{{desc}}</p>
+        <a href="{{linkHref}}" class="link-cta">{{linkTxt}}</a>
+    </div>
+{% endmacro%}
