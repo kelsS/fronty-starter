@@ -1,0 +1,9 @@
+{# Skip Links Macro #}
+
+{% macro skipLinks() %}      
+    <nav role="navigation" aria-label="Skip Navigation Links">
+        <ul id="skip-links" class="list-unstyled">       
+            {{ caller() }}
+        </ul>
+    </nav>
+{% endmacro %}

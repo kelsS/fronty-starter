@@ -15,6 +15,7 @@
 <div class="container">
   <div class="row">
   {% include "shared/left-sidebar.html" %}
+
   <main id="main-content" class="col-xl-6">    
   {% from "macros/promos.html" import txtPromoAlt %}
     {% call txtPromoAlt() %}
@@ -54,7 +55,15 @@
         </div>
     {% endcall %}   
 
-    <h3>Form Title Goes Here (H3)</h3> 
+    <h3>Form Title Goes Here (H3)</h3>
+    {% from "macros/forms.html" import form %}
+    {% call form() %}
+        <label for="InputFirstName" class="a-input-text-label label-reveals">First Name</label>
+        <input type="text" class="form-control a-input-text" id="InputFirstName" aria-describedby="firstName" placeholder="First Name" required>
+
+        <label for="InputLastName" class="a-input-text-label label-reveals">Last Name</label>
+        <input type="text" class="form-control a-input-text" id="InputLastName" aria-describedby="lastName" placeholder="Last Name" required>
+    {% endcall %} 
     
     <h3>List Groups (H3)</h3>
     <h4>An Ordered List Goes Here (H4)</h4>

@@ -1,28 +1,28 @@
 {% include "partials/head.html" %}
 
     <body class="{{ custom_classes }}">
-        <nav role="navigation" aria-label="Skip Navigation Links">
-          <ul id="skip-links" class="list-unstyled">
-            <li>
-                <a class="skip" href="#main-content" tabindex="0">Skip to Main Content</a>
-            </li>
-            <li>
-                <a class="skip" href="#right-sidebar" tabindex="0">Skip to Main Content Right Sidebar</a> 
-            </li>   
-            <li>
-              <a class="skip" href="#utility-nav" tabindex="0">Skip to Utility Navigation</a>
-            </li>
-            <li>
-              <a class="skip" href="#main-nav" tabindex="0">Skip to Main Navigation</a>
-            </li>
-            <li>
-              <a class="skip" href="#left-sidebar" tabindex="0">Skip to Sub Navigation</a>
-            </li>
-            <li>
-              <a class="skip" href="#footer" tabindex="0">Skip to Footer</a>
-            </li>
-          </ul>
-        </nav>
+    
+    {% from "macros/skip-links.html" import skipLinks %}
+    {% call skipLinks() %}
+      <li>
+        <a class="skip" href="#main-content" tabindex="0">Skip to Main Content</a>
+      </li>
+      <li>
+        <a class="skip" href="#right-sidebar" tabindex="0">Skip to Main Content Right Sidebar</a> 
+      </li>   
+      <li>
+        <a class="skip" href="#utility-nav" tabindex="0">Skip to Utility Navigation</a>
+      </li>
+      <li>
+        <a class="skip" href="#main-nav" tabindex="0">Skip to Main Navigation</a>
+      </li>
+      <li>
+        <a class="skip" href="#left-sidebar" tabindex="0">Skip to Sub Navigation</a>
+      </li>
+      <li>
+        <a class="skip" href="#footer" tabindex="0">Skip to Footer</a>
+      </li>
+    {% endcall %}
 
         {% include "shared/header.html" %}
 
@@ -38,19 +38,8 @@
         <script src="js/global.js"></script>
               
         <!-- Google Analytics -->
-              
-        <!-- Browser Update Notification -->
-        <!-- test url: site-url/#test-bu -->
-        <script> 
-          var $buoop = {required:{e:-4,f:-3,o:-3,s:-3,c:-3},insecure:true, style:"corner",api:2018.08 }; 
-          function $buo_f(){ 
-           var e = document.createElement("script"); 
-           e.src = "//browser-update.org/update.min.js"; 
-           document.body.appendChild(e);
-          };
-          try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-          catch(e){window.attachEvent("onload", $buo_f)}
-        </script>
+
+        {% include "blocks/browser-update.html" %}
 
     </body>
 </html> 
