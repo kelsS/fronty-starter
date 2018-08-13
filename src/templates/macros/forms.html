@@ -1,6 +1,6 @@
 {# Forms Macros #}
 
-{% macro form(type="text", id, ariaDescBy, placeholder, labelFor, labelTxt) %}
+{# {% macro form(type="text", id, ariaDescBy, placeholder, labelFor, labelTxt) %}
 <form>
   <div class="form-group">
     <fieldset>
@@ -10,20 +10,22 @@
     </fieldset>
    </div>
 </form>
-{% endmacro %}
+{% endmacro %} #}
 
-{# {% macro form(type="text", id, ariaDescBy, placeholder, labelFor, labelTxt) %}
+{% macro form(labelFor, labelTxt, type="text", id, ariaDescBy, placeholder) %}
 <form>
   <div class="form-group">
     <fieldset>
       <div class="a-input-field">
-        <input type="{{type}}" class="form-control a-input-text" id="{{id}}" aria-describedby="{{ariaDescBy}}" placeholder="{{placeholder}}" required>
         <label for="{{labelFor}}" class="a-input-text-label label-reveals">{{labelTxt}}</label>
+        <input type="{{type}}" class="form-control a-input-text" id="{{id}}" aria-describedby="{{ariaDescBy}}" placeholder="{{placeholder}}" required>
       </div>
     </fieldset>
-
-    {{ caller() }}
-    
+    <fieldset>
+      <div class="a-input-field">
+        {{ caller() }} 
+      </div>
+    </fieldset>
    </div>
 </form>
-{% endmacro %} #}
+{% endmacro %}

@@ -57,12 +57,93 @@
 
     <h3>Form Title Goes Here (H3)</h3>
     {% from "macros/forms.html" import form %}
-    {% call form() %}
-        <label for="InputFirstName" class="a-input-text-label label-reveals">First Name</label>
-        <input type="text" class="form-control a-input-text" id="InputFirstName" aria-describedby="firstName" placeholder="First Name" required>
-
-        <label for="InputLastName" class="a-input-text-label label-reveals">Last Name</label>
-        <input type="text" class="form-control a-input-text" id="InputLastName" aria-describedby="lastName" placeholder="Last Name" required>
+    {% call form("email", "Enter Email", type="text", "email", "email", "Enter Email") %}
+        <label for="password" class="a-input-text-label label-reveals">Enter Password</label>
+        <input type="text" class="form-control a-input-text" id="password" aria-describedby="password" placeholder="Enter Password" required>
+        <fieldset class="form-group">
+          <label for="select1" class="sr-only">Select Dropdown</label>
+          <select class="form-control custom-select-lg" id="select1" name="form-01-select">
+            <option value="option1-1">1 - Example Select</option>
+            <option value="option1-2">2 - Example Select</option>
+            <option value="option1-3">3 - Example Select</option>
+            <option value="option1-4">4 - Example Select</option>
+          </select>
+        </fieldset>
+        <fieldset class="form-group multiselect">
+          <legend class="sr-only">Example Multiselect</legend>
+          <div class="form-check">
+            <input type="checkbox" id="multi1" name="multiselect1" value="multi1">
+            <label for="multi1">Multiselect Option 1</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi2" name="multiselect1" value="multi2">
+            <label for="multi2">Multiselect Option 2</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi3" name="multiselect1" value="multi3">
+            <label for="multi3">Multiselect Option 3</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi4" name="multiselect1" value="multi4">
+            <label for="multi4">Multiselect Option 4</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi5" name="multiselect1" value="multi5">
+            <label for="multi5">Multiselect Option 5</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi6" name="multiselect1" value="multi6">
+            <label for="multi6">Multiselect Option 6</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="multi7" name="multiselect1" value="multi7">
+            <label for="multi7">Multiselect Option 7</label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group form-label-slide">
+          <label id="textarea1-label" for="textarea1" class="label-inside">Example Text Area</label>
+          <textarea class="form-control" id="textarea1" name="form-01-textarea" rows="8"></textarea>
+        </fieldset>
+        <fieldset class="custom-file">
+          <legend class="sr-only">Example Choose File</legend>
+          <input type="file" class="custom-file-input" id="customFile">
+          <label class="custom-file-label a-button" for="customFile">Choose file</label>
+          <small id="fileHelp" class="form-text">(Image Caption Style) This is some placeholder block-level help text for the above input. It easily wraps to two or more lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend class="sr-only">Example Radio Group</legend>
+          <div class="form-check">
+            <input type="radio" name="form-01-radio" id="radio1" value="radio1" checked>
+            <label for="radio1">Radio Option 1</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="form-01-radio" id="radio2" value="radio2">
+            <label for="radio2">Radio Option 2</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="form-01-radio" id="radio3" value="radio3">
+            <label for="radio3">Radio Option 3</label>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend class="sr-only">Example Checkbox Group</legend>
+          <div class="form-check">
+            <input type="checkbox" id="check1" name="form-01-check" value="check1">
+            <label for="check1">Checkbox Option 3</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="check2" name="form-01-check" value="check2">
+            <label for="check2">Checkbox Option 3</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="check3" name="form-01-check" value="check3">
+            <label for="check3">Checkbox Option 3</label>
+          </div>
+        </fieldset>
+        <div class="form-group custom-submit">
+          <input type="submit" name="form-01-submit" value="SUBMIT" class="custom-submit-input" id="customSubmit" aria-label="Submit form">
+          <label class="custom-file-label a-button" for="customSubmit" tabindex="0">Submit Form</label>
+        </div>
     {% endcall %} 
     
     <h3>List Groups (H3)</h3>
