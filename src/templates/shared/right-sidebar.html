@@ -27,29 +27,20 @@
     {{ video1.vidPromo("2", "Video Title Goes Here (H2)") }}
 
     {# {% include "blocks/inner-slider.html" %}     #}
-    <h2>News/Student Story Slider</h2>
+    <h2>News/Student Story Slider</h2>    
     {% from "macros/inner-slider.html" import innerSlider %}
     {% call innerSlider() %}
         <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <h3>Example heading text</h3>
-                <p>Example description</p>
-            </div>
-        </div>
+          <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+          <p>Optional text below slider. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
+        </div>        
         <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <h3>Example heading text</h3>
-                <p>Example description</p>
-            </div>
-        </div>
+          <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+          <p>Optional text below slider. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
+        </div>        
         <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <h3>Example heading text</h3>
-                <p>Example description</p>
-            </div>
+          <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
+          <p>Optional text below slider. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
         </div>
     {% endcall %}
 

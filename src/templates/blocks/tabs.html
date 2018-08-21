@@ -1,0 +1,26 @@
+{# Tabs Block #}
+<h3>Tabs Title Goes Here (H3)</h3>
+<section class="tabs">
+  <ul class="nav-fill" id="tab-ul" role="tablist">
+    <li>
+      <a href="#panel1" id="tab1" class="nav-link active" data-toggle="tab" role="tab" aria-controls="panel1" aria-selected="true">Panel 1</a>
+    </li>
+    <li class="nav-item">
+      <a href="#panel2" id="tab2" class="nav-link" data-toggle="tab" role="tab" aria-controls="panel2" aria-selected="false">Panel 2</a>
+    </li>
+    <li class="nav-item">
+      <a href="#panel3" id="tab3" class="nav-link" data-toggle="tab" role="tab" aria-controls="panel3" aria-selected="false">Panel 3</a>
+    </li>
+    <li class="nav-item">
+      <a href="#panel4" id="tab4" class="nav-link" data-toggle="tab" role="tab" aria-controls="panel4" aria-selected="false">Panel 4</a>
+    </li>
+  </ul>
+
+    <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="panel1"  role="tabpanel" aria-labelledby="tab1">...</div>
+    <div class="tab-pane fade" id="panel2" role="tabpanel" aria-labelledby="tab2">...</div>
+    <div class="tab-pane fade" id="panel3" role="tabpanel" aria-labelledby="tab3">...</div>
+    <div class="tab-pane fade" id="panel4" role="tabpanel" aria-labelledby="tab4">...</div>
+  </div>
+</section>

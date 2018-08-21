@@ -5,9 +5,14 @@
 
 {% set custom_classes = "home" %}
 {% extends "default-home.html" %}
+
 {% block content %}
+<div class="container">
+  <div class="row">
     <!-- Homepage Main Content goes here-->
-    <main id="main-content">
-        <h1>Testing Nunjucks</h1>
-    </main>
+    {% set page_title = "Home Page" %}
+    {% set breakpt_colnum = "12" %}
+    {% include "shared/main-home.html" %}
+  </div>
+</div>
 {% endblock %}

@@ -1,10 +1,7 @@
 {# Breadcrumb Macro #}
 
 {% macro breadcrumb() %}  
-<nav class="m-breadcrumbs" aria-label="Breadcrumb">
-    <a href="/" class="a-breadcrumb">Home</a>
-    <a href="#" class="a-breadcrumb">Test Breadcrumb Lv2</a>
-    <a href="/standard-inner-three-column.html" class="a-breadcrumb" aria-current="page">Standard Sub Page Three Column</a>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
     {{ caller() }}
 </nav>
 {% endmacro%}

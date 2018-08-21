@@ -3,191 +3,40 @@
 #}
 
 {% set custom_classes = "standard-inner" %}
+{% set page_title = "Standard Inner Three Column" %}
+
 {% extends "default-inner.html" %}
+
 {% block content %}
 
-
 <div class="container">
-    {# {% include "macros/breadcrumb.html" %} #}
-    {# {% include "macros/page-title.html" %} #}
-  <h1 class="mb-0 pb-0">{{pageTitle}}</h1>
+    {% from "macros/breadcrumb.html" import breadcrumb %}
+    {% call() breadcrumb() %}
+      <a href="/" class="link-breadcrumb">Home</a>
+      <a href="#" class="link-breadcrumb">Test Breadcrumb Lv2</a>
+      <a href="#" class="link-breadcrumb" aria-current="page">Standard Sub Page Three Column</a>    
+    {% endcall %}
+  {% include "blocks/page-title.html" %}
 </div>
 <div class="container">
   <div class="row">
   {% include "shared/left-sidebar.html" %}
 
-  <main id="main-content" class="col-xl-6">    
-  {% from "macros/promos.html" import txtPromoAlt %}
-    {% call txtPromoAlt() %}
-        <h2>A Title Goes Here (H2)</h2>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet. Olorepre mincto dundae qui od quassed utatemqui remoluptae plibusant plam, que pra quunt aut quissum nimus denimus sint. Sapera doluptamus</p>
-    {% endcall %}
+  {% set breakpt_colnum = "xl-6" %}
+  {% include "shared/main.html" %}
 
-    <h3>Accordion Title Goes Here (H3)</h3>
-
-    <h3>Card Styles (H3)</h3>
-    {% import "macros/card.html" as card1 %}
-    {{ card1.card("3","Title Goes Here", "https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et.", "#", "Learn More") }}
-    
-    {% import "macros/card.html" as card2 %}
-    {{ card2.card("3","Extra Long Title Goes Here", "https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectet adipiscing elit, sed do eiusmod tempor incididunt ut labore et.", "#", "Learn More") }}
-
-    <h3>Slider Title Goes Here (H3)</h3>    
-    {# {% from "macros/inner-slider.html" import innerSlider %}
-    {% call innerSlider() %}
-        <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <p>Optional text below slider. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
-            </div>
-        </div>
-        <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
-            </div>
-        </div>
-        <div class="inner-slide">
-            <div>
-                <img src="https://picsum.photos/200/300/?random" alt="Example Alt Text">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer aenean massa.</p>
-            </div>
-        </div>
-    {% endcall %}    #}
-
-    <h3>Form Title Goes Here (H3)</h3>
-    {% from "macros/forms.html" import form %}
-    {% call form("email", "Enter Email", type="text", "email", "email", "Enter Email") %}
-        <label for="password" class="a-input-text-label label-reveals">Enter Password</label>
-        <input type="text" class="form-control a-input-text" id="password" aria-describedby="password" placeholder="Enter Password" required>
-        <fieldset class="form-group">
-          <label for="select1" class="sr-only">Select Dropdown</label>
-          <select class="form-control custom-select-lg" id="select1" name="form-01-select">
-            <option value="option1-1">1 - Example Select</option>
-            <option value="option1-2">2 - Example Select</option>
-            <option value="option1-3">3 - Example Select</option>
-            <option value="option1-4">4 - Example Select</option>
-          </select>
-        </fieldset>
-        <fieldset class="form-group multiselect">
-          <legend class="sr-only">Example Multiselect</legend>
-          <div class="form-check">
-            <input type="checkbox" id="multi1" name="multiselect1" value="multi1">
-            <label for="multi1">Multiselect Option 1</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi2" name="multiselect1" value="multi2">
-            <label for="multi2">Multiselect Option 2</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi3" name="multiselect1" value="multi3">
-            <label for="multi3">Multiselect Option 3</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi4" name="multiselect1" value="multi4">
-            <label for="multi4">Multiselect Option 4</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi5" name="multiselect1" value="multi5">
-            <label for="multi5">Multiselect Option 5</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi6" name="multiselect1" value="multi6">
-            <label for="multi6">Multiselect Option 6</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="multi7" name="multiselect1" value="multi7">
-            <label for="multi7">Multiselect Option 7</label>
-          </div>
-        </fieldset>
-        <fieldset class="form-group form-label-slide">
-          <label id="textarea1-label" for="textarea1" class="label-inside">Example Text Area</label>
-          <textarea class="form-control" id="textarea1" name="form-01-textarea" rows="8"></textarea>
-        </fieldset>
-        <fieldset class="custom-file">
-          <legend class="sr-only">Example Choose File</legend>
-          <input type="file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label a-button" for="customFile">Choose file</label>
-          <small id="fileHelp" class="form-text">(Image Caption Style) This is some placeholder block-level help text for the above input. It easily wraps to two or more lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
-        </fieldset>
-        <fieldset class="form-group">
-          <legend class="sr-only">Example Radio Group</legend>
-          <div class="form-check">
-            <input type="radio" name="form-01-radio" id="radio1" value="radio1" checked>
-            <label for="radio1">Radio Option 1</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" name="form-01-radio" id="radio2" value="radio2">
-            <label for="radio2">Radio Option 2</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" name="form-01-radio" id="radio3" value="radio3">
-            <label for="radio3">Radio Option 3</label>
-          </div>
-        </fieldset>
-        <fieldset class="form-group">
-          <legend class="sr-only">Example Checkbox Group</legend>
-          <div class="form-check">
-            <input type="checkbox" id="check1" name="form-01-check" value="check1">
-            <label for="check1">Checkbox Option 3</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="check2" name="form-01-check" value="check2">
-            <label for="check2">Checkbox Option 3</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="check3" name="form-01-check" value="check3">
-            <label for="check3">Checkbox Option 3</label>
-          </div>
-        </fieldset>
-        <div class="form-group custom-submit">
-          <input type="submit" name="form-01-submit" value="SUBMIT" class="custom-submit-input" id="customSubmit" aria-label="Submit form">
-          <label class="custom-file-label a-button" for="customSubmit" tabindex="0">Submit Form</label>
-        </div>
-    {% endcall %} 
-    
-    <h3>List Groups (H3)</h3>
-    <h4>An Ordered List Goes Here (H4)</h4>
-    {% from "macros/lists.html" import unList %}
-    {% call unList() %}
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-    {% endcall %}
-    
-    <h4>An Unordered List Goes Here (H4)</h4>
-    {% from "macros/lists.html" import orList %}
-    {% call orList() %}
-        <li>List Item 3</li>
-        <li>List Item 4</li>
-        <li>List Item 4</li>
-    {% endcall %}
-
-    <h3>Text Styles (H3)</h3>
-
-    <h3>Image w/ Caption (H3)</h3>
-    {% import "macros/promos.html" as imgTxtPromo1 %}
-    {{ imgTxtPromo1.imgTxtPromo("https://picsum.photos/200/300/?random", "Example alt text", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit") }}
-
-    <h3>Tabs Title Goes Here (H3)</h3>
-
-    <h3>Table Title Goes Here (H3)</h3>
-   
-    {% import "macros/video.html" as video1 %}
-    {{ video1.vidPromo("3", "Video Title Here (H3)") }}
-    
-    {% from "macros/promos.html" import txtPromoAlt %}
-    {% call txtPromoAlt() %}
-        <h3>Quote in Text Style (H3)</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. “Basic Quote within text style. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscinean commodo ligula egit dolor.” Aenean massa. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa.or sit amet. Lorem i consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet.</p>
-    {% endcall %}
-  </main>
   {% include "shared/right-sidebar.html" %}
   </div>
 </div>
 
 {% endblock %}
 
-{% block addscripts %}
-<script src="/js/standard-inner.js"></script>
+{% block add_scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<!-- Slick CDN JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script src="js/libs/ExampleFolder1/example.js"></script>
+<script src="js/global.js"></script>
+<script src="js/inner.js"></script>
 {% endblock %}

@@ -29,15 +29,9 @@
         {% block content %}{% endblock %}
 
         {% include "shared/footer.html" %}
-
+        
         <!-- SCRIPTS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-        <script src="js/libs/ExampleFolder1/example.js"></script>
-        <script src="js/global.js"></script>
-        <script src="js/inner.js"></script>
-              
-        <!-- Google Analytics -->
+        {% block add_scripts %}{% endblock %}
               
         {% include "blocks/browser-update.html" %}
 
