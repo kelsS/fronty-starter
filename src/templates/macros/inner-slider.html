@@ -10,6 +10,24 @@
 
 {% macro innerSlider() %}
     <section class="js-inner-slider">
-        {{ caller() }}
+        <div>
+            {% for slide in slides %}
+            {# <img src="{{imgSrc}}" alt="{{imgAlt}}">
+            <h{{headingLvl}}>{{headingTxt}}</h{{headingLvl}}>
+            <p>{{desc}}</p> #}
+            {{ caller(slide) }}
+            {% endfor %}
+        </div>
     </section>
 {% endmacro %}
+
+{# imgSrc, imgAlt, headingLvl, desc #}
+
+{# {% call(user) dump_users(list_of_user) %}
+    <dl>
+        <dl>Realname</dl>
+        <dd>{{ user.realname|e }}</dd>
+        <dl>Description</dl>
+        <dd>{{ user.description }}</dd>
+    </dl>
+{% endcall %} #}
