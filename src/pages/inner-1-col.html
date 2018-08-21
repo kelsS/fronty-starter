@@ -1,9 +1,9 @@
 {#
-    Standard Inner Three Column - Left Sidebar/Main/Right Sidebar
+    Standard Inner One Column - Main
 #}
 
 {% set custom_classes = "standard-inner" %}
-{% set page_title = "Standard Inner Three Column" %}
+{% set page_title = "Standard Inner One Column" %}
 
 {% extends "default-inner.html" %}
 
@@ -14,20 +14,16 @@
     {% call() breadcrumb() %}
       <a href="/" class="link-breadcrumb">Home</a>
       <a href="#" class="link-breadcrumb">Test Breadcrumb Lv2</a>
-      <a href="#" class="link-breadcrumb" aria-current="page">Standard Sub Page Three Column</a>    
+      <a href="#" class="link-breadcrumb" aria-current="page">Standard Inner One Column</a>    
     {% endcall %}
   {% include "blocks/page-title.html" %}
 </div>
 <div class="container">
   <div class="row">
-  {% set left_side_breakpt_colnum = "lg-3" %}
-  {% include "shared/left-sidebar.html" %}
 
-  {% set breakpt_colnum = "lg-6" %}
+  {% set breakpt_colnum = "12" %}
   {% include "shared/main.html" %}
-
-  {% set right_side_breakpt_colnum = "lg-3" %}
-  {% include "shared/right-sidebar.html" %}
+  
   </div>
 </div>
 
