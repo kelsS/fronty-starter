@@ -1,5 +1,5 @@
 {# Tabs Block #}
-<h3>Tabs Title Goes Here (H3)</h3>
+{# <h3>Tabs Title Goes Here (H3)</h3>
 <section class="tabs">
   <ul class="nav-fill" id="tab-ul" role="tablist">
     <li>
@@ -22,5 +22,55 @@
     <div class="tab-pane fade" id="panel2" role="tabpanel" aria-labelledby="tab2">...</div>
     <div class="tab-pane fade" id="panel3" role="tabpanel" aria-labelledby="tab3">...</div>
     <div class="tab-pane fade" id="panel4" role="tabpanel" aria-labelledby="tab4">...</div>
+  </div>
+</section> #}
+
+<section class="m-tablist">
+  <h3>Tab Title Goes Here (H3)</h3>
+    <div id="list-tab" class="list-group d-none d-md-flex" role="tablist">
+      <button data-target="#tab-item-1" id="tab-link-1" class="list-group-item list-group-item-action active" data-toggle="tab" role="tab"><span class="button-h4">A Tab Title (H4)</span></button>
+        <button data-target="#tab-item-2" id="tab-link-2" class="list-group-item list-group-item-action" data-toggle="tab" role="tab"><span class="button-h4">Another Title</span></button>
+        <button data-target="#tab-item-3" id="tab-link-3" class="list-group-item list-group-item-action" data-toggle="tab" role="tab"><span class="button-h4">Title for Tab</span></button>
+      </div>
+      <div id="list-tab-content" class="tab-content" role="tablist">
+        <div id="tab-item-1" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-link-1">
+          <div id="tab-item-1-header" class="card-header d-md-none" role="tab">
+            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapse-item-1" aria-expanded="true" aria-controls="collapse-item-1" aria-label="Press space to toggle content"><span class="button-h4">A Tab Title (H4)</span></button>
+          </div>
+          <div id="collapse-item-1" class="collapse show d-md-block" role="tabpanel" aria-labelledby="tab-item-1-header" data-parent="#list-tab-content">
+            <div class="card-body">
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="tab-item-2" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-link-2">
+          <div id="tab-item-2-header" class="card-header d-md-none" role="tab">
+            <button class="list-group-item list-group-item-action collapsed" data-toggle="collapse" data-target="#collapse-item-2" aria-expanded="false" aria-controls="collapse-item-2" aria-label="Press space to toggle content"><span class="button-h4">Another Tab Title (H4)</span></button>
+          </div>
+        <div id="collapse-item-2" class="collapse d-md-block" role="tabpanel" aria-labelledby="tab-item-2-header" data-parent="#list-tab-content">
+          <div class="card-body">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+            </p>
+            <p>
+              Aenean commodo ligula egit Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="tab-item-3" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-link-3">
+        <div id="tab-item-3-header" class="card-header d-md-none" role="tab">
+            <button class="list-group-item list-group-item-action collapsed" data-toggle="collapse" data-target="#collapse-item-3" aria-expanded="false" aria-controls="collapse-item-3" aria-label="Press space to toggle content"><span class="button-h4">A Title for Tab (H4)</span></button>
+        </div>
+      <div id="collapse-item-3" class="collapse d-md-block" role="tabpanel" aria-labelledby="tab-item-3-header" data-parent="#list-tab-content">
+        <div class="card-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egit dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
