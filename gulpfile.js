@@ -101,7 +101,6 @@ gulp.task('clean:dist', function() {
 // Style Compiling
 // -----------------------------------------------------------------------------
 
-
 gulp.task('styles', function() {
   var postcss = require('gulp-postcss');
   var autoprefixer = require('autoprefixer');
@@ -225,6 +224,18 @@ gulp.task('js-home', function() {
     .pipe(gulp.dest(bases.dist + 'js'));
 });
 
+// Root JS files
+gulp.task('js', function() {
+  return gulp.src([bases.app + 'js/*.js', '!js/global.js', '!js/home.js', '!js/inner.js'])
+    .pipe(babel())
+    .pipe(gulp.dest(bases.dist + 'js'))
+    .pipe(reload({stream:true}))
+    .pipe(uglify())
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(bases.dist + 'js'));
+});
+
 // -----------------------------------------------------------------------------
 // Vendor Javascript
 // -----------------------------------------------------------------------------
@@ -267,8 +278,15 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(bases.dist + 'fonts'))
     .pipe(reload({stream:true}));
 
+  // copy video foler to dist directly
+  gulp.src(bases.app + 'video/**/*')
+    .pipe(size({ gzip: true, showFiles: true }))
+    .pipe(gulp.dest(bases.dist + 'video'))
+    .pipe(reload({stream:true}));
+
 });
 
+// SCSS Linting
 gulp.task('sass-lint', function() {
   gulp.src([bases.app + 'scss/**/*.scss', '!' + bases.app + 'scss/libs/**/*.scss', '!' + bases.app + 'scss/libs/bootstrap4/_print.scss'])
     .pipe(sassLint())
@@ -317,11 +335,13 @@ gulp.task('watch', function() {
   gulp.watch(bases.app + 'js/global.js', ['js-global']).on('change', browserSync.reload);
   gulp.watch(bases.app + 'js/inner.js', ['js-inner']).on('change', browserSync.reload);
   gulp.watch(bases.app + 'js/home.js', ['js-home']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'js/*.js', ['js']).on('change', browserSync.reload);
   gulp.watch(bases.app + 'scss/**/*.scss', ['styles']).on('change', browserSync.reload);
-  gulp.watch(bases.app + '/templates/**/*', ['nunjucks']).on('change', browserSync.reload);
-  gulp.watch(bases.app + '/pages/**/*', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'templates/**/*', ['nunjucks']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'pages/**/*', ['nunjucks']).on('change', browserSync.reload);
   gulp.watch(bases.app + './*.html', ['minify-html']);
-  gulp.watch(bases.app + 'img/*', ['imagemin']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'video/**/*', ['video']).on('change', browserSync.reload);
+  gulp.watch(bases.app + 'img/**/*', ['imagemin']).on('change', browserSync.reload);
 });
 
 // -----------------------------------------------------------------------------
@@ -364,9 +384,9 @@ gulp.task('sassdoc', function () {
 // ------------
 
 gulp.task('default', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'video', 'bootstrap', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
 });
 
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'copy', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'video', 'bootstrap', 'styles', 'copy', done);
 });
