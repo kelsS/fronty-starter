@@ -384,9 +384,9 @@ gulp.task('sassdoc', function () {
 // ------------
 
 gulp.task('default', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'video', 'bootstrap', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'themes', 'copy', 'browser-sync', 'watch', done);
 });
 
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'video', 'bootstrap', 'styles', 'copy', done);
+  runSequence('clean:dist', 'js-global', 'js-inner', 'js-home', 'js-libs', 'js', 'imagemin', 'nunjucks', 'minify-html', 'bootstrap', 'styles', 'copy', done);
 });
