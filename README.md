@@ -1,33 +1,5 @@
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/uses-css.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
-# Change by Tidusvn05
-- Updated package.json to lastest (2018-04-24)
-- Moved CDN provider from googleapis to CDNJS
-- Don't support old browser (You can use index-support-ie.html if want.)
-- remove doc url comment in html file. Moved to README file.
-- Added bootstrap, jshint.
-- Added bootstrap 4 [pricing template](https://getbootstrap.com/docs/4.0/examples/pricing/).
-- Disbled minify html as default. You can setting in gulpfile
-- Added function to generate minify file for js-app
-- Watching support js files now.
-- Fixed bug `Don't run success for first time.`
-- Added icon pack fontawesome 5.0.10 free version.
-- Added icon pack materialdesignicons 2.3.54 free version.
-
-# Change by [kelsS](https://github.com/kelsS/)
-- Updated project to use [Yarn](https://yarnpkg.com/lang/en/)
-- Changed from gulp-autoprefixer to [autoprefixer](https://www.npmjs.com/package/autoprefixer)
-- Add use of [gulp-postcss](https://www.npmjs.com/package/gulp-postcss)
-- Add [Nunjucks HTML Templating](https://www.npmjs.com/package/gulp-nunjucks)
-- Updated npm packages as of (2018-06-15)
-- Copy Bootstrap 4 SCSS from node_modules to src folder
-- Remove bootstrap 4 pricing template
-- Change to use Boostrap 4 reboot by default
-- Change to use Bootstrap 4 print styles by default
-- Add gulp-babel compiling
-- Add 00-03 naming convention to Base, Atoms, Molecules, and Organisms so that they are easier to find in folder structure 
-- Split bootstrap.css and styles.css into two separate files in dist
-
 # Reference Documents/Links
 - [DNS prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers)
 - [Assets prefetching](http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching)
@@ -47,7 +19,7 @@
 ### How to start for beginner
 - Install gulp: `yarn global add gulp`
 - git clone git@github.com:kelsS/fronty-starter.git
-- cd sassy-starter
+- cd fronty-starter
 - run `yarn install`
 - run `yarn dev` or 
 - run 'gulp'
@@ -62,18 +34,18 @@
 - materialdesignicon: `<span class="mdi mdi-play-circle"></span>`, replace `play-circle` by icon name.
 
 ### For production
-- Let use `min` files.
+- Use `min` files.
 
+# Fronty Starter
 
-# Sassy Starter [![Stories in Ready](https://badge.waffle.io/minamarkham/sassy-starter.png?label=ready&title=Ready)](https://waffle.io/minamarkham/sassy-starter)
-
-A starter toolkit based on [Scalable and Modular Architecture for CSS](http://smacss.com/) (SMACSS) and [Atomic Design](http://atomicdesign.bradfrost.com) for [Sass](http://sass-lang.com/) (SCSS) projects. Do what you'd like with it :)
+A starter toolkit based on [Scalable and Modular Architecture for CSS](http://smacss.com/) (SMACSS) and [Atomic Design](http://atomicdesign.bradfrost.com) for [Sass](http://sass-lang.com/) (SCSS) projects.
 
 Styles are broken down into the following groups: **Base, Layout, Atoms, Molecules, Organisms, States, Themes, Utilities and Overrides**
 
 ## Getting Started
 
 1. If needed, [install](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm) `node` and `npm` (Node Package Manager).
+- If needed, [install](https://yarnpkg.com/en/docs/install) `yarn`
 - If needed, install `gulp` with `yarn global add gulp`.
 - Clone this repo with `git clone https://github.com/kelsS/fronty-starter` or download the zip.
 - In terminal, `cd` to the folder containing your project. Alternatively, you can type `cd ` and drag the location of the folder into your terminal and hit enter (on Macs).
@@ -223,29 +195,29 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 │   ├── robots.txt
 │   └── scss
 │       ├── 00_base
-│       │   ├── _base.scss
-│       │   └── _index.scss
+│       │   ├── _00-index.scss
+│       │   └── _base.scss
 │       ├── 01_atoms
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── 02_molecules
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── 03_organisms
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── icons
 │       │   └── fontawesome
 │       │   └── materialdesignicons
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── layout
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── libs
 │       │   ├── bootstrap4
-│       │   ├── _index.scss
+│       │   ├── _00-index.scss
 │       │   ├── _normalize.scss
 │       │   └── _pesticide.scss
 │       ├── overrides
-│       │   └── _index.scss
+│       │   └── _00-index.scss
 │       ├── states
-│       │   ├── _index.scss
+│       │   ├── _00-index.scss
 │       │   └── _print.scss
 │       ├── themes
 │       │   └── themes.scss
@@ -263,13 +235,30 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 └── package.json
 ```
 
+# Updates/Modifications made by [kelsS](https://github.com/kelsS/)
+- Updated project to use [Yarn](https://yarnpkg.com/lang/en/)
+- Changed from gulp-autoprefixer to [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+- Add use of [gulp-postcss](https://www.npmjs.com/package/gulp-postcss)
+- Add [Nunjucks HTML Templating](https://www.npmjs.com/package/gulp-nunjucks)
+- Updated npm packages as of (2018-06-15)
+- Copy Bootstrap 4 SCSS from node_modules to src folder
+- Remove bootstrap 4 pricing template
+- Change to use Boostrap 4 reboot by default
+- Change to use Bootstrap 4 print styles by default
+- Add gulp-babel compiling
+- Add script to copy over root JS files to dist
+- Add script to copy video folder to dist for projects with background videos
+- Add 00-03 naming convention to Base, Atoms, Molecules, and Organisms so that they are easier to find in folder structure 
+- Add _00-index naming convention to index files so that they are easier to find in the folder structure
+- Split bootstrap.css and styles.css into two separate files in dist
+
 ## Bugs & Support
-Developed by [@MinaMarkham](http://twitter.com/MinaMarkham). Please list all bugs and feature requests in the Github issue tracker.
+Please list all bugs and feature requests in the Github issue tracker.
 
 ## Thanks & Resources
-
 This toolkit is based on the work of the following fine people & projects.
 
 - [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 - [Scalable and Modular Architecture for CSS](http://smacss.com/book) (<abbr title="Scalable and Modular Architecture for CSS">SMACSS</abbr>)
 - [Atomic Design](http://atomicdesign.bradfrost.com)
+- Initially developed by [@MinaMarkham](http://twitter.com/MinaMarkham)
