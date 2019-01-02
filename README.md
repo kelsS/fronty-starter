@@ -34,18 +34,18 @@
 - materialdesignicon: `<span class="mdi mdi-play-circle"></span>`, replace `play-circle` by icon name.
 
 ### For production
-- Use `min` files.
+- Let use `min` files.
 
-# Fronty Starter
 
-A starter toolkit based on [Scalable and Modular Architecture for CSS](http://smacss.com/) (SMACSS) and [Atomic Design](http://atomicdesign.bradfrost.com) for [Sass](http://sass-lang.com/) (SCSS) projects.
+# Fronty Starter [![Stories in Ready]
+
+A starter toolkit based on [Scalable and Modular Architecture for CSS](http://smacss.com/) (SMACSS) and [Atomic Design](http://atomicdesign.bradfrost.com) for [Sass](http://sass-lang.com/) (SCSS) projects. Do what you'd like with it :)
 
 Styles are broken down into the following groups: **Base, Layout, Atoms, Molecules, Organisms, States, Themes, Utilities and Overrides**
 
 ## Getting Started
 
 1. If needed, [install](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm) `node` and `npm` (Node Package Manager).
-- If needed, [install](https://yarnpkg.com/en/docs/install) `yarn`
 - If needed, install `gulp` with `yarn global add gulp`.
 - Clone this repo with `git clone https://github.com/kelsS/fronty-starter` or download the zip.
 - In terminal, `cd` to the folder containing your project. Alternatively, you can type `cd ` and drag the location of the folder into your terminal and hit enter (on Macs).
@@ -195,29 +195,29 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 │   ├── robots.txt
 │   └── scss
 │       ├── 00_base
-│       │   ├── _00-index.scss
-│       │   └── _base.scss
+│       │   ├── _base.scss
+│       │   └── _index.scss
 │       ├── 01_atoms
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── 02_molecules
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── 03_organisms
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── icons
 │       │   └── fontawesome
 │       │   └── materialdesignicons
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── layout
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── libs
 │       │   ├── bootstrap4
-│       │   ├── _00-index.scss
+│       │   ├── _index.scss
 │       │   ├── _normalize.scss
 │       │   └── _pesticide.scss
 │       ├── overrides
-│       │   └── _00-index.scss
+│       │   └── _index.scss
 │       ├── states
-│       │   ├── _00-index.scss
+│       │   ├── _index.scss
 │       │   └── _print.scss
 │       ├── themes
 │       │   └── themes.scss
@@ -235,7 +235,30 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 └── package.json
 ```
 
-# Updates/Modifications made by [kelsS](https://github.com/kelsS/)
+## Thanks & Resources
+
+This toolkit is based on the work of the following fine people & projects.
+
+- Initially Developed by [@MinaMarkham]
+- [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
+- [Scalable and Modular Architecture for CSS](http://smacss.com/book) (<abbr title="Scalable and Modular Architecture for CSS">SMACSS</abbr>)
+- [Atomic Design](http://atomicdesign.bradfrost.com)
+
+# Change by Tidusvn05
+- Updated package.json to lastest (2018-04-24)
+- Moved CDN provider from googleapis to CDNJS
+- Don't support old browser (You can use index-support-ie.html if want.)
+- remove doc url comment in html file. Moved to README file.
+- Added bootstrap, jshint.
+- Added bootstrap 4 [pricing template](https://getbootstrap.com/docs/4.0/examples/pricing/).
+- Disbled minify html as default. You can setting in gulpfile
+- Added function to generate minify file for js-app
+- Watching support js files now.
+- Fixed bug `Don't run success for first time.`
+- Added icon pack fontawesome 5.0.10 free version.
+- Added icon pack materialdesignicons 2.3.54 free version.
+
+# Change by [kelsS](https://github.com/kelsS/)
 - Updated project to use [Yarn](https://yarnpkg.com/lang/en/)
 - Changed from gulp-autoprefixer to [autoprefixer](https://www.npmjs.com/package/autoprefixer)
 - Add use of [gulp-postcss](https://www.npmjs.com/package/gulp-postcss)
@@ -246,19 +269,5 @@ _For theming: add separate file (theme.scss) in`src/scss/themes/`, override the 
 - Change to use Boostrap 4 reboot by default
 - Change to use Bootstrap 4 print styles by default
 - Add gulp-babel compiling
-- Add script to copy over root JS files to dist
-- Add script to copy video folder to dist for projects with background videos
 - Add 00-03 naming convention to Base, Atoms, Molecules, and Organisms so that they are easier to find in folder structure 
-- Add _00-index naming convention to index files so that they are easier to find in the folder structure
 - Split bootstrap.css and styles.css into two separate files in dist
-
-## Bugs & Support
-Please list all bugs and feature requests in the Github issue tracker.
-
-## Thanks & Resources
-This toolkit is based on the work of the following fine people & projects.
-
-- [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
-- [Scalable and Modular Architecture for CSS](http://smacss.com/book) (<abbr title="Scalable and Modular Architecture for CSS">SMACSS</abbr>)
-- [Atomic Design](http://atomicdesign.bradfrost.com)
-- Initially developed by [@MinaMarkham](http://twitter.com/MinaMarkham)
